@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Awareness Training | CodeAlpha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .gradient-bg {
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+        }
+
+        .card-glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+
+        .type-badge {
+            @apply px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2 inline-block;
+        }
+    </style>
+</head>
+
+<body class="gradient-bg">
+
+    <!-- Progress Top -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-slate-800 z-50">
+        <div id="progressBar" class="h-full bg-blue-500 progress-bar" style="width: 0%;"></div>
+    </div>
+
+    <!-- Container for Slides -->
+    <div id="slideContainer">
+
+        <!-- Slide 1: Title -->
+        <div class="slide active flex-col justify-center items-center text-center p-6">
+            <div class="mb-6 bg-blue-500/10 p-4 rounded-full border border-blue-500/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-blue-500" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+            </div>
+            <h1 class="text-5xl font-bold mb-4 tracking-tight">Phishing Awareness Training</h1>
+            <p class="text-xl text-slate-400 max-w-2xl mb-8">Protecting our digital identity against social engineering
+                and deceptive tactics.</p>
+            <div class="text-sm text-slate-500 mb-12">Task 2: Phishing Awareness Module | CodeAlpha Cyber Security</div>
+            <button onclick="nextSlide()" class="btn-primary px-8 py-3 rounded-lg font-semibold">Start Training</button>
+        </div>
+
+        <!-- Slide 2: What is Phishing -->
+        <div class="slide flex-col justify-center items-center p-6">
+            <div class="max-w-4xl w-full">
+                <h2 class="text-3xl font-bold mb-8 text-blue-400">01. What is Phishing?</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card-glass p-8 rounded-2xl">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Definition</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            A deceptive technique used by cybercriminals to trick individuals into revealing sensitive
+                            information such as login credentials, credit card numbers, or corporate data.
+                        </p>
+                    </div>
+                    <div class="card-glass p-8 rounded-2xl">
+                        <h3 class="text-xl font-semibold mb-4 text-white">The Impact</h3>
+                        <ul class="space-y-3 text-slate-300">
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-red-500 rounded-full"></span> Financial Loss
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-red-500 rounded-full"></span> Data Breaches
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-red-500 rounded-full"></span> Identity Theft
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Common Phishing Types (NEW) -->
+        <div class="slide flex-col justify-center items-center p-6">
+            <div class="max-w-5xl w-full">
+                <h2 class="text-3xl font-bold mb-8 text-blue-400">02. Common Phishing Types</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card-glass p-6 rounded-xl">
+                        <span class="type-badge bg-purple-500/20 text-purple-400">Spear Phishing</span>
+                        <h3 class="font-bold mb-2">Targeted Attack</h3>
+                        <p class="text-sm text-slate-400">Focuses on a specific individual or organization using
+                            personal details found online.</p>
+                    </div>
+                    <div class="card-glass p-6 rounded-xl">
+                        <span class="type-badge bg-orange-500/20 text-orange-400">Whaling</span>
+                        <h3 class="font-bold mb-2">The Big Fish</h3>
+                        <p class="text-sm text-slate-400">Targets high-level executives (CEOs, CFOs) to authorize large
+                            wire transfers.</p>
+                    </div>
+                    <div class="card-glass p-6 rounded-xl">
+                        <span class="type-badge bg-pink-500/20 text-pink-400">Smishing</span>
+                        <h3 class="font-bold mb-2">SMS Phishing</h3>
+                        <p class="text-sm text-slate-400">Deceptive text messages containing malicious links or fake
+                            package tracking info.</p>
+                    </div>
+                    <div class="card-glass p-6 rounded-xl">
+                        <span class="type-badge bg-blue-500/20 text-blue-400">Vishing</span>
+                        <h3 class="font-bold mb-2">Voice Phishing</h3>
+                        <p class="text-sm text-slate-400">Fraudulent phone calls where attackers pretend to be IT or
+                            Bank support personnel.</p>
+                    </div>
+                    <div class="card-glass p-6 rounded-xl">
+                        <span class="type-badge bg-green-500/20 text-green-400">Angler Phishing</span>
+                        <h3 class="font-bold mb-2">Social Media</h3>
+                        <p class="text-sm text-slate-400">Attackers intercept customer service requests on Twitter or
+                            Facebook.</p>
+                    </div>
+                    <div class="card-glass p-6 rounded-xl">
+                        <span class="type-badge bg-red-500/20 text-red-400">Pharming</span>
+                        <h3 class="font-bold mb-2">DNS Poisoning</h3>
+                        <p class="text-sm text-slate-400">Redirects you to a fake site even if you type the correct URL
+                            in your browser.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Anatomy of an Email -->
+        <div class="slide flex-col justify-center items-center p-6">
+            <div class="max-w-4xl w-full">
+                <h2 class="text-3xl font-bold mb-8 text-blue-400">03. Anatomy of a Phish</h2>
+                <div class="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow-2xl">
+                    <div class="bg-slate-800 p-3 text-xs text-slate-400 flex justify-between border-b border-slate-700">
+                        <span>New Message: Security Alert</span>
+                        <span class="text-red-400 font-bold uppercase tracking-wider">High Priority</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="text-sm">
+                            <span class="text-slate-500">From:</span> <span
+                                class="text-white hover:underline cursor-help"
+                                title="Red Flag: Display name doesn't match official domain">Netflix Security
+                                &lt;support@amaz0n-srv.co&gt;</span>
+                        </div>
+                        <div class="text-sm">
+                            <span class="text-slate-500">Subject:</span> <span class="text-white font-bold">Urgent: Your
+                                account is suspended!</span>
+                        </div>
+                        <div class="py-6 border-t border-slate-800">
+                            <p class="text-slate-300 mb-4">Dear Valued Customer,</p>
+                            <p class="text-slate-300 mb-6">We noticed suspicious activity on your billing account. To
+                                prevent deletion, click below to verify your details in the next 30 minutes.</p>
+                            <a href="#" class="inline-block bg-red-600 px-6 py-2 rounded font-bold text-sm">Verify
+                                Account Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 grid grid-cols-3 gap-4">
+                    <div class="text-xs p-3 bg-red-500/10 border border-red-500/20 rounded text-red-200">🚩 Look-alike
+                        Domain</div>
+                    <div class="text-xs p-3 bg-red-500/10 border border-red-500/20 rounded text-red-200">🚩 Artificial
+                        Urgency</div>
+                    <div class="text-xs p-3 bg-red-500/10 border border-red-500/20 rounded text-red-200">🚩 Generic
+                        Greeting</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: The Psychology (NEW) -->
+        <div class="slide flex-col justify-center items-center p-6">
+            <div class="max-w-4xl w-full text-center">
+                <h2 class="text-3xl font-bold mb-12 text-blue-400">04. The Psychology of Deception</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="p-4">
+                        <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">⌛
+                        </div>
+                        <h4 class="font-bold mb-2">Urgency</h4>
+                        <p class="text-xs text-slate-400">"Act now or your account is gone!" Bypass rational thought.
+                        </p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            ⚖️</div>
+                        <h4 class="font-bold mb-2">Authority</h4>
+                        <p class="text-xs text-slate-400">Impersonating the CEO or IRS to demand compliance.</p>
+                    </div>
+                    <div class="p-4">
+                        <div
+                            class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            😨</div>
+                        <h4 class="font-bold mb-2">Fear</h4>
+                        <p class="text-xs text-slate-400">Threatening legal action or account permanent loss.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            💰</div>
+                        <h4 class="font-bold mb-2">Greed</h4>
+                        <p class="text-xs text-slate-400">"You've won! Click to claim." Exploiting hope for gain.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: URL Inspection -->
+        <div class="slide flex-col justify-center items-center p-6">
+            <div class="max-w-4xl w-full text-center">
+                <h2 class="text-3xl font-bold mb-8 text-blue-400">05. The URL Test</h2>
+                <p class="text-slate-400 mb-12">Attackers use "Typosquatting" to trick your eyes. Can you spot the
+                    difference?</p>
+
+                <div class="flex flex-col md:flex-row gap-6 justify-center">
+                    <div class="card-glass p-6 rounded-xl border-green-500/30">
+                        <div class="text-green-500 mb-2 text-xs font-bold uppercase">Legitimate</div>
+                        <code class="text-xl text-white">microsoft.com</code>
+                    </div>
+                    <div class="card-glass p-6 rounded-xl border-red-500/30">
+                        <div class="text-red-500 mb-2 text-xs font-bold uppercase">Malicious</div>
+                        <code class="text-xl text-white">mircosoft.com</code>
+                    </div>
+                </div>
+                <div class="mt-12 p-6 bg-blue-500/5 rounded-xl border border-blue-500/10">
+                    <p class="text-blue-300 text-sm italic">Pro Tip: Always hover your mouse over links before clicking
+                        to see the actual destination in the bottom corner of your screen.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Defense Toolkit (NEW) -->
+        <div class="slide flex-col justify-center items-center p-6">
+            <div class="max-w-4xl w-full">
+                <h2 class="text-3xl font-bold mb-8 text-blue-400">06. Your Defense Toolkit</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card-glass p-8 rounded-2xl flex gap-6">
+                        <div class="text-4xl">📱</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Multi-Factor (MFA)</h3>
+                            <p class="text-sm text-slate-400">Even if an attacker steals your password, they can't get
+                                in without the secondary token on your device.</p>
+                        </div>
+                    </div>
+                    <div class="card-glass p-8 rounded-2xl flex gap-6">
+                        <div class="text-4xl">🗝️</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Password Managers</h3>
+                            <p class="text-sm text-slate-400">Generate and store unique, complex passwords for every
+                                site. If one site is breached, the others remain safe.</p>
+                        </div>
+                    </div>
+                    <div class="card-glass p-8 rounded-2xl flex gap-6 col-span-2">
+                        <div class="text-4xl">📣</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Reporting Protocol</h3>
+                            <p class="text-sm text-slate-400">Don't just delete a phish. Use your company's "Report
+                                Phish" button. This alerts IT to block the sender for everyone else.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Quiz -->
+        <div id="quizSlide" class="slide flex-col justify-center items-center p-6">
+            <div class="max-w-2xl w-full card-glass p-10 rounded-3xl">
+                <div id="quizContent">
+                    <span class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2 block">Knowledge
+                        Check</span>
+                    <h2 id="questionText" class="text-2xl font-bold mb-8 text-white">Question Loading...</h2>
+
+                    <div id="optionsContainer" class="space-y-4">
+                        <!-- Options injected here -->
+                    </div>
+                </div>
+                <div id="quizResult" class="hidden text-center">
+                    <h2 class="text-4xl font-bold mb-4">Quiz Complete!</h2>
+                    <p id="finalScore" class="text-xl text-slate-400 mb-8"></p>
+                    <button onclick="nextSlide()" class="btn-primary px-8 py-3 rounded-lg font-semibold">Finish
+                        Training</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Conclusion -->
+        <div class="slide flex-col justify-center items-center text-center p-6">
+            <h2 class="text-4xl font-bold mb-6 text-green-400">Training Complete!</h2>
+            <div class="max-w-2xl text-slate-300 space-y-6 text-lg mb-12">
+                <p>You've learned the essentials of phishing defense. Remember:</p>
+                <div class="grid grid-cols-2 gap-4 text-sm font-semibold">
+                    <div class="bg-slate-800 p-4 rounded-lg">Slow Down</div>
+                    <div class="bg-slate-800 p-4 rounded-lg">Check Senders</div>
+                    <div class="bg-slate-800 p-4 rounded-lg">Verify Links</div>
+                    <div class="bg-slate-800 p-4 rounded-lg">Enable MFA</div>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <button onclick="currentSlide = 0; showSlide(0);"
+                    class="px-8 py-3 rounded-lg font-semibold bg-slate-800 hover:bg-slate-700">Restart</button>
+                <div class="px-8 py-3 rounded-lg font-semibold border border-blue-500/30 text-blue-400">CodeAlpha Cyber
+                    Security Task 2</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="fixed bottom-10 right-10 flex gap-4">
+        <button id="prevBtn" onclick="prevSlide()"
+            class="p-3 bg-slate-800 rounded-full hover:bg-slate-700 transition-colors disabled:opacity-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button id="nextBtn" onclick="nextSlide()"
+            class="p-3 bg-blue-600 rounded-full hover:bg-blue-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progressBar');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Quiz State
+        let currentQuestion = 0;
+        let score = 0;
+        const questions = [
+            {
+                q: "What is the primary goal of a Phishing attack?",
+                options: ["Infecting hardware", "Stealing sensitive data", "Fixing slow internet"],
+                correct: 1
+            },
+            {
+                q: "A padlock icon in the browser URL bar guarantees a site is safe.",
+                options: ["True - It's verified", "False - Padlocks only mean the connection is encrypted"],
+                correct: 1
+            },
+            {
+                q: "What type of phishing targets a specific individual using personal data?",
+                options: ["Whaling", "Spear Phishing", "Smishing"],
+                correct: 1
+            },
+            {
+                q: "If you receive a suspicious email from a 'CEO' asking for a wire transfer, this is called:",
+                options: ["Vishing", "Whaling", "Pharming"],
+                correct: 1
+            },
+            {
+                q: "Which defense mechanism is strongest against credential theft?",
+                options: ["Complex Passwords", "Multi-Factor Authentication (MFA)", "Private Browsing"],
+                correct: 1
+            }
+        ];
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+
+            // Update UI
+            const progress = (index / (slides.length - 1)) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            prevBtn.disabled = index === 0;
+            nextBtn.style.opacity = (index === slides.length - 1) ? "0" : "1";
+
+            // If it's the quiz slide, initialize quiz
+            if (slides[index].id === 'quizSlide') {
+                initQuiz();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Quiz Logic
+        function initQuiz() {
+            document.getElementById('quizContent').classList.remove('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+            currentQuestion = 0;
+            score = 0;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQuestion];
+            document.getElementById('questionText').innerText = q.q;
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border border-slate-700 hover:border-blue-500 hover:bg-blue-500/10 transition-all text-slate-300";
+                btn.innerText = opt;
+                btn.onclick = () => handleAnswer(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(idx) {
+            if (idx === questions[currentQuestion].correct) {
+                score++;
+            }
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                renderQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quizContent').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+            document.getElementById('finalScore').innerText = `You scored ${score} out of ${questions.length}`;
+        }
+
+        // Listen for keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowRight") nextSlide();
+            if (e.key === "ArrowLeft") prevSlide();
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+
+</html>
